@@ -5,6 +5,7 @@
 //==============================================================================================================
 
 const jwt = require('jsonwebtoken');
+const log = require('../src/log');
 
 //==============================================================================================================
 // Changelog
@@ -38,6 +39,8 @@ module.exports = function (req, res, next) {
     return res.status(403).json({ message: 'Token invalid or expired' });
   }
 };
+
+log.writeLog('Auth middleware loaded', 'auth', 'initialize');
 
 //==============================================================================================================
 // End of File
